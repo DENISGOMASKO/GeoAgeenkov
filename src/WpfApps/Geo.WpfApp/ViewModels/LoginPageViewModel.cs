@@ -9,24 +9,16 @@ namespace Geo.WpfApp.ViewModels
 {
     internal class LoginPageViewModel : BaseViewModel
     {
-        private string _captchaText;
-        public string CaptchaText { 
-            get { return _captchaText; } 
-            set { 
-                _captchaText = value;
-                Trace.WriteLine(_captchaText);
-                OnPropertyChanged();
-            } 
-        }
 
-        private bool _captchaFilled;
-        public bool CaptchaFilled
+
+        private bool _isCaptchaFilled;
+        public bool IsCaptchaFilled
         {
-            get { return _captchaFilled; }
+            get { return _isCaptchaFilled; }
             set
             {
-                _captchaFilled = value;
-                Trace.WriteLine(_captchaFilled);
+                _isCaptchaFilled = value;
+                //Trace.WriteLine(_isCaptchaFilled);
                 OnPropertyChanged();
             }
         }
@@ -37,7 +29,8 @@ namespace Geo.WpfApp.ViewModels
             {
                 return new ActionCommand(() =>
                 {
-                    Trace.WriteLine(CaptchaFilled);
+                    Trace.WriteLine(IsCaptchaFilled);
+                    IsCaptchaFilled = true;
                 });
             }
         }

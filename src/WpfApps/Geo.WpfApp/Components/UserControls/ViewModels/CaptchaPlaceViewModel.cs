@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Controls;
-
+using System.Reflection;
 namespace Geo.WpfApp.Components.UserControls.ViewModels
 {
     internal class CaptchaPlaceViewModel : BaseViewModel
@@ -15,34 +15,25 @@ namespace Geo.WpfApp.Components.UserControls.ViewModels
         public CaptchaPlaceViewModel()
         {
             RefreshCaptchaImage();
+            
         }
 
-        public static readonly DependencyProperty IsCaptchaFilledProperty =
-             DependencyProperty.Register(
-                 name: "IsCaptchaFilled",
-                 propertyType: typeof(bool),
-                 ownerType: typeof(CaptchaPlace),
-                 typeMetadata: new FrameworkPropertyMetadata(
-                         defaultValue: false,
-                         flags: FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                         propertyChangedCallback: null,
-                         coerceValueCallback: null,
-                         isAnimationProhibited: false,
-                         defaultUpdateSourceTrigger: UpdateSourceTrigger.PropertyChanged
-                         ));
-
+        private bool _isCaptchaFilled;
         public bool IsCaptchaFilled
         {
             get
             {
-                return (bool)GetValue(IsCaptchaFilledProperty);
+                return _isCaptchaFilled;
             }
             set
             {
-                SetValue(IsCaptchaFilledProperty, value);
-                //OnPropertyChanged();
+                _isCaptchaFilled = value;
+                OnPropertyChanged();
+                Trace.WriteLine("in CPVM: " + IsCaptchaFilled.ToString());
             }
         }
+
+        
 
         private string _captchaCode;
 
@@ -60,10 +51,7 @@ namespace Geo.WpfApp.Components.UserControls.ViewModels
             }
         }
 
-        private string _enteredCaptchaCode;
-
-        
-
+        private string _enteredCaptchaCode;     
         public string EnteredCaptchaCode
         {
             get
@@ -74,6 +62,7 @@ namespace Geo.WpfApp.Components.UserControls.ViewModels
             {
                 _enteredCaptchaCode = value;
                 IsCaptchaFilled = string.Equals(_captchaCode, _enteredCaptchaCode);
+                
                 OnPropertyChanged();
             }
         }

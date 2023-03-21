@@ -5,12 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Geo.WpfApp.Components.UserControls"
              xmlns:vm="clr-namespace:Geo.WpfApp.Components.UserControls.ViewModels"
-
+            
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <vm:CaptchaPlaceViewModel/>
-    </UserControl.DataContext>
+
     <Grid MaxHeight="200" MaxWidth="600">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -22,9 +20,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="{Binding CaptchaImage}" Grid.ColumnSpan="2" MaxHeight="70" />
+        <Image x:Name="captchaImage" Grid.ColumnSpan="2" MaxHeight="70" />
 
-        <Button Grid.Column="2" Command="{Binding RefreshCommand}"  Height="50" Width="50" Margin="20"/>
-        <local:ObligatoryField Text="{Binding EnteredCaptchaCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="field" MaxHeight="80" Grid.Row="1" Grid.ColumnSpan="3" Margin="0 10 0 10"/>
+        <Button Click="RefreshClick" Grid.Column="2" Height="50" Width="50" Margin="20"/>
+        <local:ObligatoryField x:Name="field" TextChanged="Field_TextChanged"  MaxHeight="80" Grid.Row="1" Grid.ColumnSpan="3" Margin="0 10 0 10"/>
     </Grid>
 </UserControl>

@@ -44,6 +44,8 @@ namespace Geo.WpfApp.Components.UserControls
             }
         }
 
+        public event TextChangedEventHandler TextChanged;
+
         private bool _isTextChanging;
 
         public static readonly DependencyProperty TextProperty =
@@ -82,12 +84,14 @@ namespace Geo.WpfApp.Components.UserControls
             set { SetValue(TextProperty, value); }
         }
 
-        private void textBox_TextChanged(object sender, RoutedEventArgs e)
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
             _isTextChanging = true;
             Text = textBox.Text;
             _isTextChanging = false;
             CorrectBorderBrush();
+            TextChanged?.Invoke(this, e);
         }             
     }
 }
