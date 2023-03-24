@@ -34,7 +34,6 @@ namespace Geo.WpfApp.Components.UserControls
         private void RefreshCaptchaImage()
         {
             if (IsCaptchaFilled) return;
-            //_enteredCaptchaCode = string.Empty;
             field.Text = string.Empty;
             _captchaCode = CaptchaGen.CaptchaCodeFactory.GenerateCaptchaCode(6).ToLower();
             BitmapImage image = new BitmapImage();
@@ -65,6 +64,10 @@ namespace Geo.WpfApp.Components.UserControls
             set
             {
                 SetValue(IsCaptchaFilledProperty, value);
+                if (value)
+                {
+                    //field. //TODO: ReadOnly
+                }
             }
         }
 

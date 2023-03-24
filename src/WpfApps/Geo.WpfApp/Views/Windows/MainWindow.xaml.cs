@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Geo.WpfApp.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace Geo.WpfApp.Views.Windows
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.Navigate(NavigateTo.Login, frame);
         }
     }
 }
