@@ -4,14 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Egor92.MvvmNavigation.Abstractions;
 using EntityFrameworkClassLibrary.Contexts;
+using Geo.WpfApp.Constants;
 using Geo.WpfApp.Core;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Geo.WpfApp.ViewModels.Pages
 {
     internal class LoginPageViewModel : BaseViewModel
     {
+        #region Fields
 
         private string _login;
         public string Login
@@ -42,17 +46,27 @@ namespace Geo.WpfApp.ViewModels.Pages
             set
             {
                 _isCaptchaFilled = value;
-                //Trace.WriteLine(_isCaptchaFilled);
                 OnPropertyChanged();
             }
         }
 
-        private AccountContext accountContext;
-        public LoginPageViewModel()
+        private readonly INavigationManager _navigationManager;
+
+        private AccountContext accountContext = new AccountContext();
+
+        #endregion
+
+        #region Ctor
+
+        public LoginPageViewModel(INavigationManager navigationManager)
         {
-            accountContext = new AccountContext();
-            accountContext.Database.EnsureCreated();
+            _navigationManager = navigationManager;
+            accountContext.Database.EnsureCreated();            
         }
+
+        #endregion
+
+        #region Enter
 
         private bool userIsAvailable(string login, string password)
         {
@@ -66,9 +80,18 @@ namespace Geo.WpfApp.ViewModels.Pages
             {
                 return new ActionCommand(() =>
                 {
-                    Trace.WriteLine(userIsAvailable(Login, Password) && IsCaptchaFilled);
+                    #if DEBUG
+                    _navigationManager.Navigate(NavigationKeys.Account);
+                    #else
+                    if (userIsAvailable(Login, Password) && IsCaptchaFilled)
+                    {
+                        _navigationManager.Navigate(NavigationKeys.Accounts);
+                    }
+                    #endif
                 });
             }
         }
+
+        #endregion
     }
 }

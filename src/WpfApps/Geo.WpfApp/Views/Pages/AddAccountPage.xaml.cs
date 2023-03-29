@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -11,14 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Geo.WpfApp.Views.Windows
+namespace Geo.WpfApp.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AddAccount.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddAccountPage : Page
     {
-        public MainWindow()
+        public AddAccountPage()
         {
             InitializeComponent();
         }

@@ -34,6 +34,8 @@ create table Account(
 	primary key (id_account)
 );
 
+insert into Account (login, password) values ('a', 'a')
+
 create table Place(
 	id_place int identity,
 	_id_project int, 

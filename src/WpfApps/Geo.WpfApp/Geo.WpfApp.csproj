@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="CaptchaGen" Version="1.0.0" />
+    <PackageReference Include="MvvmNavigation.Wpf" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Helpers\" />
     <Folder Include="ViewModels\Windows\" />
+    <Folder Include="jsons\" />
   </ItemGroup>
 
 </Project>

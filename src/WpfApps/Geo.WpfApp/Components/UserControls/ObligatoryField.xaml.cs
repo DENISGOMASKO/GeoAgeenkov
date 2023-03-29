@@ -31,7 +31,6 @@ namespace Geo.WpfApp.Components.UserControls
             InitializeComponent();
             CorrectBorderBrush();
         }
-
         private void CorrectBorderBrush()
         {
             if (string.IsNullOrEmpty(Text))
@@ -85,8 +84,7 @@ namespace Geo.WpfApp.Components.UserControls
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
+        {           
             _isTextChanging = true;
             Text = textBox.Text;
             _isTextChanging = false;

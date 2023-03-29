@@ -43,6 +43,8 @@ namespace Geo.WpfApp.Components.UserControls
             }
         }
 
+        private bool _isPasswordChanging;
+
         public static readonly DependencyProperty PasswordProperty =
             DependencyProperty.Register(
                 name: "Password",
@@ -51,11 +53,27 @@ namespace Geo.WpfApp.Components.UserControls
                 typeMetadata: new FrameworkPropertyMetadata(
                         defaultValue: string.Empty,
                         flags: FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                        propertyChangedCallback: null,
+                        propertyChangedCallback: PasswordPropertyChanged,
                         coerceValueCallback: null,
                         isAnimationProhibited: false,
                         defaultUpdateSourceTrigger: UpdateSourceTrigger.PropertyChanged
                         ));
+
+        private static void PasswordPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ObligatoryPasswordField obligatoryField)
+            {
+                obligatoryField.UpdatePassword();
+            }
+        }
+
+        private void UpdatePassword()
+        {
+            if (!_isPasswordChanging)
+            {
+                passwordBox.Password = Password;
+            }
+        }
 
         public string Password
         {
@@ -65,7 +83,9 @@ namespace Geo.WpfApp.Components.UserControls
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            _isPasswordChanging = true;
             Password = passwordBox.Password;
+            _isPasswordChanging = false;
             CorrectBorderBrush();
         }
     }

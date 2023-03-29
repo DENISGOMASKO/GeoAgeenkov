@@ -10,7 +10,7 @@ namespace EntityFrameworkClassLibrary.Relationships
         [Key]
         public int? id_post { get; set; }
         public string? title { get; set; }
-        public string? salary { get; set; }       
+        public int? salary { get; set; }       
         
         public List<Account>? accounts { get; set; }
     }

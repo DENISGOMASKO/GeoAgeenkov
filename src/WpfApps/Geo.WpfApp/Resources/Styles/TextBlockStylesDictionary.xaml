@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="textBlockMainStyle" TargetType="TextBlock">
+        <!--<Setter Property="Height" Value="30"></Setter>-->
+        <Setter Property="FontSize" Value="24"></Setter>
+        <!--<Setter Property="FontFamily" Value="{StaticResource Zaychik}"/>-->
+        <Setter Property="Control.FontFamily" Value="{StaticResource Gogol}" />
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="7"/>
+            </Style>
+        </Style.Resources>
+
+    </Style>
+</ResourceDictionary>

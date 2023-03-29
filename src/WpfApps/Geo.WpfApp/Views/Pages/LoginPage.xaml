@@ -9,9 +9,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage">
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <vmPg:LoginPageViewModel/>
-    </Page.DataContext>
+    </Page.DataContext>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

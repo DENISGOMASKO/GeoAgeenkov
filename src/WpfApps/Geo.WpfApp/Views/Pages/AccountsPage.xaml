@@ -1,0 +1,49 @@
+﻿<Page x:Class="Geo.WpfApp.Views.Pages.AccountsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Geo.WpfApp.Views.Pages"
+        mc:Ignorable="d"
+        Title="AccountsPage" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid   
+            
+            ItemsSource="{Binding Accounts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"              
+            AutoGenerateColumns="False" 
+            SelectionMode="Single"
+            MaxWidth="600"
+            CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id_account}" IsReadOnly="True" Header="Айди"/>
+                <DataGridTextColumn Binding="{Binding full_name}" Header="ФИО"/>
+                <DataGridTextColumn Binding="{Binding login}" Header="Логин"/>
+                <DataGridTextColumn Binding="{Binding password}" Header="Пароль"/>
+                <DataGridTextColumn Binding="{Binding post.title}" IsReadOnly="True" Header="Должность"/> 
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Column="1" Width="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Row="0" >
+                <TextBlock Text="Загрузить" FontSize="25" HorizontalAlignment="Center"/>
+                <Button Command="{Binding LoadCommand}" Grid.Row="1" Height="40" Width="150" Margin="10"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" >
+                <TextBlock Text="Сохранить" FontSize="25" HorizontalAlignment="Center"/>
+                <Button Command="{Binding SaveCommand}" Grid.Row="1" Height="40" Width="150" Margin="10"/>
+            </StackPanel>
+                     
+        </Grid>
+    </Grid>
+</Page>
