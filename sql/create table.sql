@@ -7,6 +7,7 @@ drop table Account
 drop table Post
 drop table Project
 
+
 create table Project(
 	id_project int identity,
 	owner nvarchar(100),
@@ -23,6 +24,8 @@ create table Post(
 	primary key (id_post)
 );
 
+insert into Post (id_post, title, salary) values (1, 'asd', 500)
+
 create table Account(
 	id_account int identity,
 	full_name nvarchar(1000),
@@ -34,7 +37,7 @@ create table Account(
 	primary key (id_account)
 );
 
-insert into Account (login, password) values ('a', 'a')
+insert into Account (login, password, _id_post) values ('a', 'a', 1)
 
 create table Place(
 	id_place int identity,
