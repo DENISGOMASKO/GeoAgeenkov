@@ -80,7 +80,7 @@ namespace Geo.WpfApp.ViewModels.Pages
             {
                 return new ActionCommand(() =>
                 {
-                    #if DEBUG
+                    #if DEBUG1
                     _navigationManager.Navigate(NavigationKeys.Account);
                     #else
                     if (userIsAvailable(Login, Password) && IsCaptchaFilled)

@@ -9,9 +9,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage">
-    <!--<Page.DataContext>
-        <vmPg:LoginPageViewModel/>
-    </Page.DataContext>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -40,7 +37,7 @@
             <uc:CaptchaPlace IsCaptchaFilled="{Binding IsCaptchaFilled, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></uc:CaptchaPlace>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Command="{Binding EntryCommand}" Margin="20"></Button>
+            <Button Command="{Binding EntryCommand}" Margin="20">Войти</Button>
         </Grid>
     </Grid>
 </Page>

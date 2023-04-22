@@ -66,7 +66,7 @@ namespace Geo.WpfApp.Components.UserControls
                 SetValue(IsCaptchaFilledProperty, value);
                 if (value)
                 {
-                    //field. //TODO: ReadOnly
+                    field.IsReadOnly = true;
                 }
             }
         }

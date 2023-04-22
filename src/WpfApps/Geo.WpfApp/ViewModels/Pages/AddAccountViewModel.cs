@@ -97,7 +97,8 @@ namespace Geo.WpfApp.ViewModels.Pages
                     temp.full_name = FullName;
                     temp.login = Login;
                     temp.password = Password;
-                    temp._id_post = SPost.id_post;
+                    if (!(SPost is null))
+                        temp._id_post = SPost.id_post;
                     accountContext.account.Add(temp);
                     accountContext.SaveChanges();
                     FullName = "";

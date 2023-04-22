@@ -22,7 +22,7 @@ namespace Geo.WpfApp.Components.UserControls
     /// Логика взаимодействия для ObligatoryField.xaml. Также является DataContext для ObligatoryField
     /// Реализован интерфейс INotifyPropertyChanged
     /// </summary>
-    public partial class ObligatoryField : UserControl//, INotifyPropertyChanged
+    public partial class ObligatoryField : UserControl //TODO Custom change brush color
     {
         private Brush _wrongBrush = Brushes.Red;
         private Brush _correctBrush = Brushes.Green;
@@ -90,6 +90,18 @@ namespace Geo.WpfApp.Components.UserControls
             _isTextChanging = false;
             CorrectBorderBrush();
             TextChanged?.Invoke(this, e);
-        }             
+        }  
+        
+        public bool IsReadOnly
+        {
+            get
+            {
+                return textBox.IsReadOnly;
+            }
+            set
+            {
+                textBox.IsReadOnly = value;
+            }
+        }
     }
 }
