@@ -29,9 +29,11 @@
             <TextBlock Text="Пароль" FontFamily="{StaticResource Calama}" FontSize="30" HorizontalAlignment="Center"/>
             <uc:ObligatoryPasswordField Password="{Binding Password}" Width="150" Height="40"/>
         </StackPanel>
-        <ComboBox ItemsSource="{Binding Posts}" DisplayMemberPath="title" SelectedItem="{Binding SPost}" Width="130" Height="50" Grid.Column="1"/>
+        <ComboBox ItemsSource="{Binding Posts}" DisplayMemberPath="title" SelectedItem="{Binding SPost}" Width="130" Height="50" Grid.Column="1" Grid.Row="0"/>
       
-        <Button Command="{Binding AddCommand}" Content="Добавить" FontSize="20" Width="160" Height="60" Grid.Row="2" Grid.Column="1"/>
+        <Button Command="{Binding AddCommand}" Content="Добавить" FontSize="20" Width="160" Height="60" Grid.Row="1" Grid.Column="1"/>
+
+        <Button Command="{Binding BackCommand}" Content="Назад" FontSize="20" Width="80" Height="30" Grid.Row="2" Grid.Column="1"/>
 
     </Grid>
 </Page>

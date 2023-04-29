@@ -32,6 +32,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
             <StackPanel Grid.Row="0" >
@@ -43,7 +44,12 @@
                 <TextBlock Text="Сохранить" FontSize="25" HorizontalAlignment="Center"/>
                 <Button Command="{Binding SaveCommand}" Grid.Row="1" Height="40" Width="150" Margin="10"/>
             </StackPanel>
-                     
+
+            <StackPanel Grid.Row="2" >
+                <TextBlock Text="Добавить" FontSize="25" HorizontalAlignment="Center"/>
+                <Button Command="{Binding AddCommand}" Grid.Row="1" Height="40" Width="150" Margin="10"/>
+            </StackPanel>
+
         </Grid>
     </Grid>
 </Page>

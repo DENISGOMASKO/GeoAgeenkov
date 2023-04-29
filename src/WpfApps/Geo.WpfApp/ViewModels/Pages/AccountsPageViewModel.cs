@@ -1,6 +1,7 @@
 ﻿using Egor92.MvvmNavigation.Abstractions;
 using EntityFrameworkClassLibrary.Contexts;
 using EntityFrameworkClassLibrary.Relationships;
+using Geo.WpfApp.Constants;
 using Geo.WpfApp.Core;
 using System;
 using System.Collections.Generic;
@@ -91,6 +92,21 @@ namespace Geo.WpfApp.ViewModels.Pages
             get 
             { 
                 return new ActionCommand(SaveData);  
+            }
+        }
+
+        #endregion
+
+        #region
+
+        public ICommand AddCommand
+        {
+            get
+            {
+                return new ActionCommand(()=>
+                {
+                    _navigationManager.Navigate(NavigationKeys.AddAccount);
+                });
             }
         }
 

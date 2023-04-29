@@ -25,7 +25,7 @@ namespace Geo.WpfApp
             var navigationManager = new NavigationManager(mainWindow);
             navigationManager.Register<LoginPage>(NavigationKeys.Login, () => new LoginPageViewModel(navigationManager));
             navigationManager.Register<AccountsPage>(NavigationKeys.Accounts, () => new AccountsPageViewModel(navigationManager));
-            navigationManager.Register<AddAccountPage>(NavigationKeys.Account, () => new AddAccountViewModel(navigationManager));
+            navigationManager.Register<AddAccountPage>(NavigationKeys.AddAccount, () => new AddAccountViewModel(navigationManager));
             /*navigationManager.Register<WelcomeView>(NavigationKeys.Welcome, () => new WelcomeViewModel(navigationManager));
             navigationManager.Register<ParameterSelectionView>(NavigationKeys.ParameterSelection, () => new ParameterSelectionViewModel(navigationManager));
             navigationManager.Register<ParameterDisplayView>(NavigationKeys.ParameterDisplay, () => new ParameterDisplayViewModel(navigationManager));
