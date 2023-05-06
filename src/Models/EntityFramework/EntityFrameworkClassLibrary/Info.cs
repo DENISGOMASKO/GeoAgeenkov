@@ -4,20 +4,37 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace EtityFrameworkClassLibrary
+namespace EntityFrameworkClassLibrary
 {
     public static class Info
     {
-        public static string connectionString()
+        public static string connectionString
         {
-            string _connectionString = null;
-            #if HOME
+            get { 
+                string _connectionString = null;
+                #if HOME
                 _connectionString = @"Data Source = DENISPC; Initial Catalog = GomaskoDP_Geo; Integrated Security = True";
-            #else
+                #else
                 _connectionString = @"Data Source = DBSRV\ag2022; Initial Catalog = GomaskoDP_Geo; Integrated Security = True";
-            #endif
-            return _connectionString;
+                #endif
+                return _connectionString;
+            }
         }
+
+        public static string connectionStringEdit
+        {
+            get
+            {
+                string _connectionString = null;
+#if HOME
+                _connectionString = @"Data Source = DENISPC; Initial Catalog = GomaskoDP_Edit; Integrated Security = True";
+#else
+                _connectionString = @"Data Source = DBSRV\ag2022; Initial Catalog = GomaskoDP_editing; Integrated Security = True";
+#endif
+                return _connectionString;
+            }
+        }
+
     }
 }
 

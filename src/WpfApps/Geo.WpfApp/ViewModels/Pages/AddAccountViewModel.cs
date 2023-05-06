@@ -14,7 +14,7 @@ namespace Geo.WpfApp.ViewModels.Pages
     internal class AddAccountViewModel: BaseViewModel
     {
         #region Fields
-        private readonly INavigationManager _navigationManager;
+        //private readonly INavigationManager _navigationManager;
         private AccountContext accountContext = new AccountContext();
 
         private string _fullName;

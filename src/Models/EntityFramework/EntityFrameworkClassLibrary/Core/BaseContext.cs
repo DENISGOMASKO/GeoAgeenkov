@@ -1,4 +1,4 @@
-﻿using EtityFrameworkClassLibrary;
+﻿using EntityFrameworkClassLibrary;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace EntityFrameworkClassLibrary.Core
 
         protected BaseContext()
         {
-            _connectionString = Info.connectionString();
+            _connectionString = Info.connectionString;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

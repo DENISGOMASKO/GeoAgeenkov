@@ -26,12 +26,13 @@ namespace Geo.WpfApp
             navigationManager.Register<LoginPage>(NavigationKeys.Login, () => new LoginPageViewModel(navigationManager));
             navigationManager.Register<AccountsPage>(NavigationKeys.Accounts, () => new AccountsPageViewModel(navigationManager));
             navigationManager.Register<AddAccountPage>(NavigationKeys.AddAccount, () => new AddAccountViewModel(navigationManager));
+            navigationManager.Register<EditPage>(NavigationKeys.Edit, () => new EditPageViewModel(navigationManager));
             /*navigationManager.Register<WelcomeView>(NavigationKeys.Welcome, () => new WelcomeViewModel(navigationManager));
             navigationManager.Register<ParameterSelectionView>(NavigationKeys.ParameterSelection, () => new ParameterSelectionViewModel(navigationManager));
             navigationManager.Register<ParameterDisplayView>(NavigationKeys.ParameterDisplay, () => new ParameterDisplayViewModel(navigationManager));
             */
             mainWindow.Show();
-            navigationManager.Navigate(NavigationKeys.Login);
+            navigationManager.Navigate(NavigationKeys.Edit);
         }
     }
 }
